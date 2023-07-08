@@ -1,7 +1,15 @@
+"use client";
+
+import { useState } from "react";
+
+import { Header } from "@/components/Header";
+
 export default function Home() {
+  const [searchInput, setSearchInput] = useState("");
+
   return (
-    <div>
-      <h2>Hello World</h2>
-    </div>
+    <>
+      <Header value={searchInput} setValue={setSearchInput} />
+    </>
   );
 }
