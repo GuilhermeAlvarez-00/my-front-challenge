@@ -15,8 +15,10 @@ export type GetAllProducts = {
 type GetProductsParams = {
   page: number;
   perPage: number;
+  sortField: string;
+  sortOrder: string;
   filter: {
-    name: string;
-    category: string;
+    q?: string;
+    category?: string;
   };
 };
