@@ -1,5 +1,6 @@
 import { GlobalStyles } from "@/global/styles";
 import StyledComponentsRegistry from "@/lib/registry";
+import { QueryClientProvider } from "@/services/queryClientProvider";
 
 export default function RootLayout({
   children,
@@ -9,10 +10,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <StyledComponentsRegistry>
-          <GlobalStyles />
-          {children}
-        </StyledComponentsRegistry>
+        <QueryClientProvider>
+          <StyledComponentsRegistry>
+            <GlobalStyles />
+            {children}
+          </StyledComponentsRegistry>
+        </QueryClientProvider>
       </body>
     </html>
   );
