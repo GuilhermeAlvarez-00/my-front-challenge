@@ -3,12 +3,10 @@ import { GetAllProducts, GetProductsParams } from "@/types/products";
 import { transformParamsToUrl } from "@/utils/transformParamsToUrl";
 import { useQuery } from "@tanstack/react-query";
 
-export const getProducts = async ({
-  page,
-  perPage,
-  filter,
-}: GetProductsParams) => {
-  const query = transformParamsToUrl({ page, perPage, filter });
+export const getProducts = async (params: GetProductsParams) => {
+  const { query, meta } = transformParamsToUrl(params);
+
+  console.log(query);
 
   const { data } = await API.post("/", {
     query: `
@@ -20,7 +18,7 @@ export const getProducts = async ({
           price_in_cents,
           category,
         },
-        _allProductsMeta ${query ? `(${query})` : null} {
+        _allProductsMeta ${meta ? `(${meta})` : null} {
           count
         }
       }
