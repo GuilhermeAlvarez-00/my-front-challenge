@@ -35,6 +35,7 @@ export default function Home() {
 
   const handleFilterByCategory = (category: string) => {
     setCategory(category);
+    setPage(0);
   };
 
   return (
