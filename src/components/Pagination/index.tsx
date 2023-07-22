@@ -9,7 +9,7 @@ type PaginationProps = {
 export const Pagination: FC<PaginationProps> = ({ totalPages, setPage }) => {
   return (
     <S.Container>
-      {Array.from({ length: 5 }, (_, index) => index).map((item) => (
+      {Array.from({ length: totalPages }, (_, index) => index).map((item) => (
         <button key={item} onClick={() => setPage(item)}>
           {item + 1}
         </button>
